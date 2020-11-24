@@ -1,7 +1,7 @@
 # CRUD App
-Frontend : ReactJs
-  Backend: NodeJs
-  DB : AWS RDS
+* Frontend : ReactJs
+* Backend: NodeJs
+* DB : AWS RDS
 
 # Docker-compose container
 Nginx : Proxy server

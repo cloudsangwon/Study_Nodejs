@@ -19,3 +19,6 @@
 
 ### 4. Check data with workbench (connect with aws rds)
 ![image](https://user-images.githubusercontent.com/74950655/100135560-28a4e280-2ecd-11eb-94ea-06cc897d6080.png)
+
+### 5. docker-compose check
+![image](https://user-images.githubusercontent.com/74950655/100135708-5d189e80-2ecd-11eb-9328-8baa58831662.png)

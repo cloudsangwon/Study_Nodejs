@@ -30,7 +30,7 @@ deploy:
   bucket_name: elasticbeanstalk-ap-northeast-2-002174788893 # S3 bucket_name , region ap-northeast-2
   bucket_path: "sangwon_nodejs_study_crud" # app name  = bucket_path 
   on:
-    branch: master
+    branch: master # branch master 
   
   access_key_id: $AWS_ACCESS_KEY # travis ci env
   secret_access_key: $AWS_SECRET_ACCESS_KEY # travis ci env 

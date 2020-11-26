@@ -4,10 +4,10 @@ sudo: required
 
 services:
   - docker
-# 없어도 됨 
+# 없어도 됨.
 before_install:
   - docker build -t sangwondockerhub/Study_Nodejs_react-test-app -f ./frontend/Dockerfile.dev ./frontend
-
+# 도커 이미지 실행 
 script:
   - docker run -e CI=true sangwondockerhub/react-test-app npm test
 

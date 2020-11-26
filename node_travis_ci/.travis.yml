@@ -6,15 +6,15 @@ services:
   - docker
 
 before_install:
-  - docker build -t cloudsangwon/Study_Nodejs_react-test-app -f ./frontend/Dockerfile.dev ./frontend
+  - docker build -t sangwondockerhub/Study_Nodejs_react-test-app -f ./frontend/Dockerfile.dev ./frontend
 
 script:
-  - docker run -e CI=true cloudsangwon/react-test-app npm test
+  - docker run -e CI=true sangwondockerhub/react-test-app npm test
 
 after_success:
-  - docker build -t cloudsangwon/Study_Nodejs_docker-frontend ./frontend
-  - docker build -t cloudsangwon/Study_Nodejs_docker-backend ./backend
-  - docker build -t cloudsangwon/Study_Nodejs_docker-nginx ./nginx
+  - docker build -t sangwondockerhub/Study_Nodejs_docker-frontend ./frontend
+  - docker build -t sangwondockerhub/Study_Nodejs_docker-backend ./backend
+  - docker build -t sangwondockerhub/Study_Nodejs_docker-nginx ./nginx
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 

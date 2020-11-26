@@ -3,21 +3,21 @@
     "containerDefinitions": [
         {
             "name": "frontend",
-            "image": "cloudsangwon/Study_Nodejs_docker-frontend",
+            "image": "sangwondockerhub/Study_Nodejs_docker-frontend",
             "hostname": "frontend",
             "essential": false,
             "memory": 128
         },
         {
             "name": "backend",
-            "image": "cloudsangwon/Study_Nodejs_docker-backend",
+            "image": "sangwondockerhub/Study_Nodejs_docker-backend",
             "hostname": "backend",
             "essential": false,
             "memory": 128
         },
         {
             "name": "nginx",
-            "image": "cloudsangwon/Study_Nodejs_docker-nginx",
+            "image": "sangwondockerhub/Study_Nodejs_docker-nginx",
             "hostname": "nginx",
             "essential": true,
             "portMappings": [

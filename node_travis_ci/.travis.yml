@@ -23,7 +23,7 @@ after_success:
   - docker push sangwondockerhub/Study_Nodejs_docker-nginx
 
 deploy:
-  provider: elasticbeanstalk # service Name 
+  provider: elasticbeanstalk # service Name Elasticbeanstalk
   region: "ap-northeast-2" # region : seoul 
   app: "sangwon_nodejs_study_crud" # application name 
   env: "SangwonNodejsStudyCrud-env" # enviroment name 
@@ -32,5 +32,5 @@ deploy:
   on:
     branch: master
   
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  access_key_id: $AWS_ACCESS_KEY # travis ci env
+  secret_access_key: $AWS_SECRET_ACCESS_KEY # travis ci env 

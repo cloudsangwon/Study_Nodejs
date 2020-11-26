@@ -1,0 +1,36 @@
+language: generic
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t cloudsangwon/Study_Nodejs_react-test-app -f ./frontend/Dockerfile.dev ./frontend
+
+script:
+  - docker run -e CI=true cloudsangwon/react-test-app npm test
+
+after_success:
+  - docker build -t cloudsangwon/Study_Nodejs_docker-frontend ./frontend
+  - docker build -t cloudsangwon/Study_Nodejs_docker-backend ./backend
+  - docker build -t cloudsangwon/Study_Nodejs_docker-nginx ./nginx
+
+  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
+
+  - docker push sangwondockerhub/Study_Nodejs_docker-frontend
+  - docker push sangwondockerhub/Study_Nodejs_docker-backend
+  - docker push sangwondockerhub/Study_Nodejs_docker-nginx
+
+deploy:
+  provider: elasticbeanstalk # service Name 
+  region: "ap-northeast-2" # region : seoul 
+  app: "sangwon_nodejs_study_crud" # application name 
+  env: "SangwonNodejsStudyCrud-env" # enviroment name 
+  bucket_name: elasticbeanstalk-ap-northeast-2-002174788893 # S3 bucket_name , region ap-northeast-2
+  bucket_path: "sangwon_nodejs_study_crud" # app name  = bucket_path 
+  on:
+    branch: master
+  
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
